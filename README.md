@@ -10,7 +10,7 @@ Official documentation: https://forecast-v3.weather.gov/documentation
 Requirements
 ------------
 
-* Python 3.4 (tested)
+* Python 2.7
 
 Installation
 ------------
