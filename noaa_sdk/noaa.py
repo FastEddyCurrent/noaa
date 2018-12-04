@@ -4,14 +4,14 @@ API Wrapper for NOAA API V3
 For more detailed information about NOAA API,
 visit: https://forecast-v3.weather.gov/documentation
 
-Geoencoding is made possible by Open Street Map (© OpenStreetMap contributors)
+Geoencoding is made possible by Open Street Map OpenStreetMap contributors)
 For copyright information, visit: https://www.openstreetmap.org/copyright
 
 
 """
 
 import json
-from urllib.parse import urlencode
+#from urllib.parse import urlencode
 
 from noaa_sdk.util import UTIL
 from noaa_sdk.accept import ACCEPT
@@ -33,9 +33,25 @@ class OSM(UTIL):
         """
         self._user_agent = 'pypi noaa_sdk'
         self._accept = ACCEPT.JSON
-        super().__init__(
-            user_agent=self._user_agent, accept=ACCEPT.JSON,
-            show_uri=show_uri)
+        super(OSM,self).__init__(user_agent=self._user_agent, accept=ACCEPT.JSON,show_uri=show_uri)
+
+    def get_lat_lon_by_city_state_country(self, city, state, country):
+        """Get latitude and longitude coordinate from postalcode
+        and country code.
+
+        Args:
+            city (str): city.
+            state (str): full state name
+            country (str): 2 letter country code.
+        Returns:
+            tuple: tuple of latitude and longitude.
+        """
+
+        res = self.make_get_request(
+            '/search?city={}&state={}&country={}&format=json'.format(
+                city, state, country), end_point=self.OSM_ENDPOINT)
+
+        return float(res[0]['lat']), float(res[0]['lon'])
 
     def get_lat_lon_by_postalcode_country(self, postalcode, country):
         """Get latitude and longitude coordinate from postalcode
@@ -98,10 +114,35 @@ class NOAA(UTIL):
         if not accept:
             accept = ACCEPT.GEOJSON
 
-        super().__init__(
-            user_agent=user_agent, accept=accept,
-            show_uri=show_uri)
-        self._osm = OSM()
+        super(NOAA,self).__init__(user_agent=user_agent, accept=accept,show_uri=show_uri)self._osm = OSM()
+
+
+    def get_city_forecasts(self, city, state, hourly=True):
+        """Get forecasts by city, state and country code.
+
+        Args:
+            city (str): city name.
+            state (str): full state name
+            country (str): 2 letter country code.
+            hourly (boolean[optional]): True for getting hourly forecast.
+        Returns:
+            list: list of weather forecasts.
+        """
+
+        lat, lon = self._osm.get_lat_lon_by_city_state_country(
+            city, state, 'US')
+        res = self.points_forecast(lat, lon, hourly)
+
+        if 'status' in res and res['status'] == 503 and 'detail' in res:
+            raise Exception('Status: {}, NOAA API Error Response: {}'.format(
+                res['status'], res['detail']))
+        elif 'properties' not in res:
+            raise Exception(
+                '"properties" attribute not found. Possible response json changes')
+        elif 'properties' in res and 'periods' not in res['properties']:
+            raise Exception(
+                '"periods" attribute not found. Possible response json changes')
+        return res['properties']['periods']
 
     def get_forecasts(self, postal_code, country, hourly=True):
         """Get forecasts by postal code and country code.

@@ -2,7 +2,8 @@ import requests
 import time
 from datetime import datetime
 from functools import wraps
-
+#TODO fix later, gets rid of  snimissingwarning insecureplatformwarning
+requests.packages.urllib3.disable_warnings()
 from noaa_sdk.accept import ACCEPT
 
 

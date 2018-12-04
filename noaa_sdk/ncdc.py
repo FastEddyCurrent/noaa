@@ -1,4 +1,4 @@
-from urllib.parse import urlencode
+#from urllib.parse import urlencode
 import requests
 
 from util import UTIL
@@ -33,9 +33,7 @@ class NCDC(UTIL):
             user_agent = self.DEFAULT_USER_AGENT
 
         self._token = token
-        super().__init__(
-            user_agent=user_agent, accept=accept,
-            show_uri=show_uri)
+        super(NCDC,self).__init__(user_agent=user_agent, accept=accept,show_uri=show_uri)
 
     def make_get_request(self, uri, header=None, end_point=None):
         """Encapsulate code for GET request.
