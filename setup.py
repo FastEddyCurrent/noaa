@@ -5,7 +5,7 @@ with open('README.rst') as file:
     long_description = file.read()
 
 setup(name='noaa-sdk',
-      version='0.1.14',
+      version='0.1.0',
       description='NOAA API (V3) Python 3 SDK.',
       install_requires=[
           'httplib2==0.10.3',
@@ -15,12 +15,12 @@ setup(name='noaa-sdk',
       classifiers=[
           'Development Status :: 3 - Alpha',
           'License :: OSI Approved :: MIT License',
-          'Programming Language :: Python :: 3.4'
+          'Programming Language :: Python :: 2.7'
       ],
       keywords=(
           'NOAA noaa weather public v3 api sdk osm postalcode country postcode'),
-      url='https://github.com/paulokuong/noaa',
-      author='Paulo Kuong',
+      url='https://github.com/FastEddyCurrent/noaa',
+      author='Paulo Kuong'
       author_email='paulo.kuong@gmail.com',
       license='MIT',
       packages=find_packages(),

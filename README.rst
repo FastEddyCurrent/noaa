@@ -7,7 +7,7 @@ SDK for NOAA Weather Service REST API.
 
     | Fully unit tested SDK for NOAA Weather Service REST API.
     | https://forecast-v3.weather.gov/documentation
-    | https://github.com/paulokuong/noaa
+    | https://github.com/FastEddyCurrent/noaa
 
 Requirements
 ------------
