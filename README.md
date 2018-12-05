@@ -15,7 +15,7 @@ Requirements
 Installation
 ------------
 ```
-    pip install noaa-sdk from this repository 
+    pip install noaa-sdk from this repository
 ```
 
 Goal
@@ -32,7 +32,7 @@ To get weather forecast for a coordinate:
 
 ```python
 
-    from noaa_sdk import noaa
+    from noaa_sdk import from this repository
 
     n = noaa.NOAA()
     n.points_forecast(40.7314, -73.8656, hourly=False)
