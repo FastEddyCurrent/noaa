@@ -20,7 +20,7 @@ setup(name='noaa-sdk',
       keywords=(
           'NOAA noaa weather public v3 api sdk osm postalcode country postcode'),
       url='https://github.com/FastEddyCurrent/noaa',
-      author='Paulo Kuong'
+      author='Paulo Kuong',
       author_email='paulo.kuong@gmail.com',
       license='MIT',
       packages=find_packages(),
