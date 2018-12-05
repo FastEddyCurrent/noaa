@@ -15,7 +15,7 @@ Requirements
 Installation
 ------------
 ```
-    pip install noaa-sdk
+    pip install noaa-sdk from this repository 
 ```
 
 Goal
