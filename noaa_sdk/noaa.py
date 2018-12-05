@@ -11,7 +11,7 @@ For copyright information, visit: https://www.openstreetmap.org/copyright
 """
 
 import json
-#from urllib.parse import urlencode
+from urllib import urlencode
 
 from noaa_sdk.util import UTIL
 from noaa_sdk.accept import ACCEPT
@@ -21,7 +21,7 @@ class OSM(UTIL):
     """
     Make request to Open Street Map nominatim Api.
     ==============================================
-    © OpenStreetMap contributors
+     OpenStreetMap contributors
 
     Open Street Map, you guys are awesome, don't block me please.
     """
@@ -114,7 +114,8 @@ class NOAA(UTIL):
         if not accept:
             accept = ACCEPT.GEOJSON
 
-        super(NOAA,self).__init__(user_agent=user_agent, accept=accept,show_uri=show_uri)self._osm = OSM()
+        super(NOAA,self).__init__(user_agent=user_agent, accept=accept,show_uri=show_uri)
+        self._osm = OSM()
 
 
     def get_city_forecasts(self, city, state, hourly=True):
