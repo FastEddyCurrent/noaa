@@ -15,7 +15,7 @@ Requirements
 Installation
 ------------
 ```
-    pip install noaa-sdk from this repository
+    pip install https://github.com/FastEddyCurrent/noaa/archive/master.zip
 ```
 
 Goal
