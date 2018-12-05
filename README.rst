@@ -12,7 +12,7 @@ SDK for NOAA Weather Service REST API.
 Requirements
 ------------
 
--  Python 3.4 (tested)
+-  Python 2.7 (tested)
 
 Goal
 ----

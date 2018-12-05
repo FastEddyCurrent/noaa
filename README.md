@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/paulokuong/noaa.svg?branch=master)](https://travis-ci.org/paulokuong/noaa)[![Coverage Status](https://coveralls.io/repos/github/paulokuong/noaa/badge.svg?branch=master)](https://coveralls.io/github/paulokuong/noaa?branch=master)
+[![Build Status](https://api.travis-ci.org/FastEddyCurrent/noaa.svg?branch=master)](https://travis-ci.org/FastEddyCurrent/noaa)[![Coverage Status](https://coveralls.io/repos/github/FastEddyCurrent/noaa/badge.svg?branch=master)](https://coveralls.io/github/FastEddyCurrent/noaa?branch=master)
 NOAA Python SDK
 ===============
 
