@@ -15,7 +15,7 @@ Requirements
 Installation
 ------------
 ```
-    pip install from this repository
+    pip install https://github.com/FastEddyCurrent/noaa/archive/master.zip
 ```
 
 Goal
