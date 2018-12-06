@@ -9,7 +9,7 @@ setup(name='noaa-sdk',
       description='NOAA API (V3) Python 2.7 SDK.',
       install_requires=[
           'httplib2==0.10.3',
-          'urllib3==1.22',
+          'urllib3==1.23',
           'requests'
       ],
       classifiers=[
